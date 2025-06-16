@@ -115,6 +115,11 @@ class Quiz:
             if self.selected_answer == correct_answer:
                 self.score += 1
             self.answer_submitted = True
+            
+            # Если это последний вопрос, сразу завершаем тест
+            if self.current_question == len(self.questions) - 1:
+                self.quiz_completed = True
+            
             return True
         return False
     
@@ -238,4 +243,4 @@ class Button:
         
     def check_hover(self, pos):
         self.is_hovered = self.rect.collidepoint(pos)
-        return self.is_hovered 
+        return self.is_hovered
